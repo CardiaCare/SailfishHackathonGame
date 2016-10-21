@@ -1,10 +1,9 @@
 import QtQuick 2.0
 
-Rectangle {
+Item {
     id: item
     width: 640
     height: 480
-    color: "black"
 
     EntityManager {
         id: entityManager
@@ -62,7 +61,7 @@ Rectangle {
         interval: 30000
         onTriggered:{
 
-            checkWinner()
+            entityManager.checkWinner()
             //totalTime.text =  .toString()
         }
         running: true; repeat: false

@@ -18,20 +18,23 @@ Canvas {
         var ctx = getContext("2d")
         ctx.clearRect(0, 0, width, height)
         if (status > 0) {
-            ctx.strokeStyle = "magenta"
+            ctx.strokeStyle = "white"
             context.beginPath()
-            context.arc(startPosition.x, startPosition.y, startRadius, 0, 2 * Math.PI, false);
+            context.arc(startPosition.x, startPosition.y, startRadius, 0, 3 * Math.PI, false);
+            context.lineWidth = 3;
             context.stroke()
-            ctx.strokeStyle = "green"
+            ctx.strokeStyle = "white"
             context.beginPath()
             context.moveTo(startPosition.x, startPosition.y);
             context.lineTo(endPosition.x, endPosition.y);
+            context.lineWidth = 3;
             context.stroke()
         }
         if (status > 1) {
-            ctx.strokeStyle = "orange"
+            ctx.strokeStyle = "white"
             context.beginPath()
-            context.arc(endPosition.x, endPosition.y, endRadius, 0, 2 * Math.PI, false);
+            context.arc(endPosition.x, endPosition.y, endRadius, 0, 3 * Math.PI, false);
+            context.lineWidth = 3;
             context.stroke()
         }
     }
@@ -53,11 +56,11 @@ Canvas {
 
                 var startEntity = entityManager.getPointed(startPosition)
                 var endEntity = entityManager.getPointed(endPosition)
-
-                var charge = entityManager.changeScore(startPosition)
-
-                entityManager.createParticleObjects(startEntity.x+50, startEntity.y+50, endEntity.x, endEntity.y,charge, startEntity.player)
-
+                console.log(startEntity.idinsib+ " " +endEntity.idinsib)
+                if (startEntity.idinsib !== endEntity.idinsib){
+                    var charge = entityManager.changeScore(startPosition,endPosition)
+                    entityManager.createParticleObjects(startEntity.x+80, startEntity.y+80, endEntity.x, endEntity.y,charge, startEntity.player)
+                }
 
             }
             status = 0
