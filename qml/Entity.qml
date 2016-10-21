@@ -1,26 +1,15 @@
 import QtQuick 2.0
 
-Image {
+AnimatedImage {
     id:virus
 
-    source: "green.png"
+    source: "green.gif"
 
     property int player
     //color: player === 1 ? "red" : "blue"
     width: 50
     height: 50
     property int score:0
-
-
-    transform: Rotation{
-        origin{
-            x: virus.width/2
-            y: virus.height
-        }
-        axis{x:1;y:0;z:0}
-        angle:5
-    }
-
 
     Text {
         id: scoreText
