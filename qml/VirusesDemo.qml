@@ -1,0 +1,55 @@
+import QtQuick 2.0
+
+Item {
+    id: item
+    width: 640
+    height: 480
+
+    EntityManager {
+        id: entityManager
+        scene: item
+        Component.onCompleted: {
+            generate()
+        }
+    }
+
+    Controller {
+        anchors.fill: parent
+        z: -1
+        controllerPosition: 1
+        startRadius: 40
+        endRadius: 50
+        onHooked: {
+            var entity = entityManager.getPointed(position)
+            if (entity !== null) {
+                var entityPosition = Qt.point(entity.x + entity.width / 2, entity.y + entity.height / 2)
+                var entityPlayer = entity.player
+                if (entityPlayer === 1) {
+                    startPosition = entityPosition
+                    endPosition = startPosition
+                    status = 1
+
+                }
+            }
+        }
+        onMoved: {
+            var entity = entityManager.getPointed(position)
+            if (entity !== null) {
+                var entityPosition = Qt.point(entity.x + entity.width / 2, entity.y + entity.height / 2)
+                var entityPlayer = entity.player
+                if (entityPlayer !== 1) {
+                    endPosition = entityPosition
+                    status = 2
+                }
+            }
+            else {
+                endPosition = position
+                status = 1
+            }
+
+        }
+
+    }
+
+
+}
