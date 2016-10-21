@@ -1,9 +1,10 @@
 import QtQuick 2.0
 
-Item {
+Rectangle {
     id: item
     width: 640
     height: 480
+    color: "black"
 
     EntityManager {
         id: entityManager
@@ -51,10 +52,10 @@ Item {
 
     }
 
-    Text {
-        id: totalTime
-        text: qsTr(totalTime.toString())
-    }
+//    Text {
+//        id: totalTime
+//        text: qsTr(totalTime.toString())
+//    }
 
     Timer {
         id: totalTimer
