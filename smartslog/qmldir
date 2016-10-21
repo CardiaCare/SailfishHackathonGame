@@ -1,0 +1,3 @@
+module SmartSlog
+plugin smartslog
+
