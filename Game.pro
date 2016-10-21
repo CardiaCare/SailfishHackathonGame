@@ -15,8 +15,7 @@ TARGET = Game
 
 CONFIG += sailfishapp
 
-SOURCES += src/Game.cpp \
-    src/particle.cpp
+SOURCES += src/Game.cpp
 
 OTHER_FILES += qml/Game.qml \
     qml/cover/CoverPage.qml \
@@ -52,6 +51,5 @@ DISTFILES += \
     qml/VirusesDemo.qml \
     qml/Particle.qml
 
-HEADERS += \
-    src/particle.h
+HEADERS +=
 

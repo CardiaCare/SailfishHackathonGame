@@ -46,8 +46,8 @@ int main(int argc, char *argv[])
     //   - SailfishApp::pathTo(QString) to get a QUrl to a resource file
     //
     // To display the view, call "show()" (will show fullscreen on device).
-    QQmlEngine engine;
-    engine.addImportPath("qrc:///");
+    //QQmlEngine engine;
+    //engine.addImportPath("qrc:///");
     return SailfishApp::main(argc, argv);
 }
 

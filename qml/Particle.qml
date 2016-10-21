@@ -51,11 +51,6 @@ Image {
             if (!parAn.running){
 
                 entityManager.addCharge(endX, endY, charge, nextplayer);
-
-
-                if (checkWinner()){
-                    console.log("winner");
-                }
             }
         }
     }
