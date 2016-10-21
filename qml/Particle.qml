@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QuickPromise 1.0
+
 import "virusgame.js" as Logic
 
 Image {

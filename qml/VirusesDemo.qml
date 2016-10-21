@@ -51,5 +51,21 @@ Item {
 
     }
 
+    Text {
+        id: totalTime
+        text: qsTr(totalTime.toString())
+    }
+
+    Timer {
+        id: totalTimer
+        interval: 30000
+        onTriggered:{
+
+            checkWinner()
+            //totalTime.text =  .toString()
+        }
+        running: true; repeat: false
+    }
+
 
 }
