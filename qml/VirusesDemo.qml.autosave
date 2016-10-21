@@ -58,11 +58,13 @@ Item {
 
     Timer {
         id: totalTimer
-        interval: 1000
+        interval: 30000
         onTriggered:{
-            totalTime.text =  .toString()
+            
+            checkWinner()
+            //totalTime.text =  .toString()
         }
-        running: true; repeat: true
+        running: true; repeat: false
     }
 
 
