@@ -56,7 +56,7 @@ Canvas {
 
                 var startEntity = entityManager.getPointed(startPosition)
                 var endEntity = entityManager.getPointed(endPosition)
-                console.log(startEntity.idinsib+ " " +endEntity.idinsib)
+                console.log(startEntity.idinsib + " " +endEntity.idinsib)
                 if (startEntity.idinsib !== endEntity.idinsib){
                     var charge = entityManager.changeScore(startPosition,endPosition)
                     entityManager.createParticleObjects(startEntity.x+80, startEntity.y+80, endEntity.x, endEntity.y,charge, startEntity.player)

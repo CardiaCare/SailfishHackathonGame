@@ -4,13 +4,14 @@ QtObject {
     property var scene
     property var entities: []
 
-    function generate() {
+    function generate(PosX,PosY,Player,Score) {
         var component = Qt.createComponent("Entity.qml")
-        entities.push(component.createObject(scene, {"idinsib": 1, "x": 100, "y": 100, "z": 0, "player": 1, "score": 10}));
-        entities.push(component.createObject(scene, {"idinsib": 2,"x": 300, "y": 250, "z": 0, "player": 2, "score": 2}));
-        entities.push(component.createObject(scene, {"idinsib": 3,"x": 250, "y": 180, "z": 0, "player": 1, "score": 14}));
-        entities.push(component.createObject(scene, {"idinsib": 4,"x": 400, "y": 400, "z": 0, "player": 2, "score": 5}));
+        entities.push(component.createObject(scene, {"x": PosX, "y": PosY, "z": 0, "player": Player, "score": Score}));
+        //entities.push(component.createObject(scene, {"x": PosX, "y": 250, "z": 0, "player": 2, "score": 2}));
+        //entities.push(component.createObject(scene, {"x": PosX, "y": 180, "z": 0, "player": 1, "score": 14}));
+        //entities.push(component.createObject(scene, {"x": 400, "y": 400, "z": 0, "player": 2, "score": 5}));
     }
+
 
     function getPointed(position){
         var pointedEntity = null

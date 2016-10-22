@@ -8,10 +8,31 @@ Item {
     EntityManager {
         id: entityManager
         scene: item
-        Component.onCompleted: {
-            generate()
+    Component.onCompleted: {
+        var maxW = width
+        var maxH = height
+        var posX, posY, player, score
+        var lastPosX = 0
+        var lastPosY = 0
+        var i
+        var playerCount = []
+        for(i = 0; i < 4; i++) {
+            posX = Math.random() * (maxW - 100) + 50
+            posY = Math.random() * (maxH - 100) + 50
+            score = Math.random() * 30 + 10
+            player = Math.random() * 2 + 1
+            if(Math.sqrt(Math.pow((posX - lastPosX),2) + Math.pow((posY - lastPosY),2)) > 100) {
+                lastPosX = posX
+                lastPosY = posY
+                generate(posX,posY,player,score)
+            }
+            else {
+                i = i - 1
+            }
         }
     }
+    }
+
 
     Controller {
         anchors.fill: parent
