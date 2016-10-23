@@ -26,7 +26,7 @@ HEADERS += \
     smartslog_plugin.h \
     qmlsmartslog.h
 
-QMAKE_CFLAGS += -std=c99 -DHAVE_MEMMOVE -DMTENABLE -DHAVE_EXPAT_CONFIG_H -Wall
+QMAKE_CFLAGS += -std=c99 -DHAVE_MEMMOVE -DMTENABLE -DHAVE_EXPAT_CONFIG_H -Wall -Wunused-parameter
 
 DEFINES += _GNU_SOURCE
 

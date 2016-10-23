@@ -1,16 +1,35 @@
 import QtQuick 2.0
 
-Rectangle {
+Item {
     id: item
     width: 640
     height: 480
-    color: "black"
 
     EntityManager {
         id: entityManager
         scene: item
         Component.onCompleted: {
-            generate()
+            var maxW = width
+            var maxH = height
+            var posX, posY, player, score
+            var lastPosX = 0
+            var lastPosY = 0
+            var i
+            var playerCount = []
+            for(i = 0; i < 4; i++) {
+                posX = Math.random() * (maxW - 100) + 50
+                posY = Math.random() * (maxH - 100) + 50
+                score = Math.random() * 30 + 10
+                player = Math.random() * 2 + 1
+                if(Math.sqrt(Math.pow((posX - lastPosX),2) + Math.pow((posY - lastPosY),2)) > 100) {
+                    lastPosX = posX
+                    lastPosY = posY
+                    generate(posX,posY,player,score)
+                }
+                else {
+                    i = i - 1
+                }
+            }
         }
     }
 
@@ -62,7 +81,7 @@ Rectangle {
         interval: 30000
         onTriggered:{
 
-            checkWinner()
+            entityManager.checkWinner()
             //totalTime.text =  .toString()
         }
         running: true; repeat: false
